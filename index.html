@@ -6,12 +6,16 @@
 <title>Salon Fryzjerski HUGO</title>
 
 <style>
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: #000;
   color: #fff;
-  scroll-behavior: smooth;
 }
 
 /* NAV */
@@ -25,7 +29,6 @@ nav {
   gap: 50px;
   padding: 20px;
   z-index: 1000;
-  backdrop-filter: blur(10px);
 }
 
 nav a {
@@ -33,11 +36,6 @@ nav a {
   text-decoration: none;
   font-size: 13px;
   letter-spacing: 2px;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  opacity: 0.5;
 }
 
 /* HERO */
@@ -55,11 +53,6 @@ header {
 
 header h1 {
   font-size: 70px;
-  letter-spacing: 2px;
-}
-
-header p {
-  opacity: 0.7;
 }
 
 .btn {
@@ -69,11 +62,6 @@ header p {
   color: black;
   border-radius: 30px;
   text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #ddd;
 }
 
 /* SEKCJE */
@@ -82,12 +70,15 @@ section {
   max-width: 900px;
   margin: auto;
   text-align: center;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 0.8s ease;
+  scroll-margin-top: 80px;
 }
 
-/* O NAS */
-#onas p {
-  line-height: 1.8;
-  opacity: 0.8;
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* CENNIK */
@@ -96,7 +87,6 @@ section {
   justify-content: space-between;
   border-bottom: 1px solid #333;
   padding: 12px 0;
-  font-size: 15px;
 }
 
 /* GALERIA */
@@ -109,6 +99,7 @@ section {
   width: 100%;
   height: 350px;
   object-fit: cover;
+  border-radius: 6px;
   transition: 0.4s;
 }
 
@@ -117,18 +108,13 @@ section {
   filter: brightness(0.8);
 }
 
-/* KONTAKT */
-#kontakt p {
-  opacity: 0.8;
-}
-
 /* STOPKA */
 footer {
   text-align: center;
   padding: 30px;
   background: #111;
-  font-size: 13px;
 }
+
 </style>
 </head>
 
@@ -152,27 +138,30 @@ footer {
 <section id="onas">
   <h2>O nas</h2>
   <p>
-  Salon HUGO to nowoczesne miejsce stworzone dla osób, które oczekują czegoś więcej niż zwykłego strzyżenia.
-  Łączymy doświadczenie z najnowszymi trendami, tworząc fryzury dopasowane do stylu życia każdego klienta.
-  Dbamy o atmosferę, detale i najwyższą jakość usług.
+  Salon HUGO to nowoczesny salon fryzjerski, który łączy styl, precyzję i najnowsze trendy.
+  Specjalizujemy się w cięciach typu taper fade oraz nowoczesnych stylizacjach.
+  Tworzymy fryzury dopasowane do charakteru klienta, dbając o każdy detal.
   </p>
 </section>
 
 <section id="cennik">
   <h2>Cennik</h2>
+
   <div class="price"><span>Strzyżenie męskie</span><span>50 zł</span></div>
-  <div class="price"><span>Strzyżenie damskie</span><span>80 zł</span></div>
+  <div class="price"><span>Taper fade</span><span>60 zł</span></div>
+  <div class="price"><span>Strzyżenie + broda</span><span>80 zł</span></div>
   <div class="price"><span>Koloryzacja</span><span>150 zł</span></div>
-  <div class="price"><span>Modelowanie</span><span>60 zł</span></div>
   <div class="price"><span>Stylizacja</span><span>70 zł</span></div>
+
 </section>
 
 <section id="galeria">
   <h2>Galeria</h2>
   <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033">
+    <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250">
+    <img src="https://images.unsplash.com/photo-1595475038784-bbe439ff41e6">
     <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4">
-    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70">
-    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
   </div>
 </section>
 
@@ -186,6 +175,19 @@ footer {
 <footer>
   © 2026 Salon HUGO
 </footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      section.classList.add("show");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
