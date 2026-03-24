@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Fryzjerski HUGO</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438');
+  background-size: cover;
+  text-align: center;
+  animation: fadeIn 2s ease;
+}
+
+header h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+header p {
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #ff0055;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff3366;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.contact {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  font-size: 14px;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Salon Fryzjerski HUGO</h1>
+  <p>Twój styl. Nasza pasja.</p>
+  <a href="#kontakt" class="btn">Umów wizytę</a>
+</header>
+
+<section>
+  <h2>O nas</h2>
+  <p>Nowoczesny salon fryzjerski oferujący profesjonalne usługi dla kobiet i mężczyzn. Stawiamy na jakość, styl i zadowolenie klientów.</p>
+</section>
+
+<section>
+  <h2>Usługi</h2>
+  <div class="services">
+    <div class="card">✂️ Strzyżenie męskie</div>
+    <div class="card">💇‍♀️ Strzyżenie damskie</div>
+    <div class="card">🎨 Koloryzacja</div>
+    <div class="card">✨ Stylizacja włosów</div>
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <h2>Kontakt</h2>
+  <p>📍 Ruda Śląska</p>
+  <p>📞 123 456 789</p>
+  <p>🕒 Pon–Sob: 9:00 – 18:00</p>
+</section>
+
+<footer>
+  © 2026 Salon HUGO
+</footer>
+
+</body>
+</html>
